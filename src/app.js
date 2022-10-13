@@ -2,7 +2,9 @@
 const express = require('express');
 
 //? Files
-const {port} = require('./config')
+const {port} = require('./config');
+//* Routes
+const userRouter = require('./users/users.router')
 
 //? Initial Configs
 const app = express()
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
     })
 })
 
+app.use('/api/v1/users', userRouter)
 
 app.listen(port, () => {
     console.log(`Server started at port ${port}`)
