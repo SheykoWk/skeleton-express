@@ -52,11 +52,21 @@ const deleteUser = async (id) => {
     return data
 }
 
+const getUserByEmail = async(email) => {
+    //? SELECT * FROM users where email = 'sahid.kick@academlo.com'//
+    const data = await Users.findOne({
+        where: {
+            email: email
+        }
+    })
+    return data
+}
 
 module.exports = {
     createUser,
     getAllUsers,
     getUserById,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUserByEmail
 }
