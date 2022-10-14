@@ -6,6 +6,7 @@ const db = require('./utils/database')
 const {port} = require('./config');
 //* Routes
 const userRouter = require('./users/users.router')
+const authRouter = require('./auth/auth.router')
 
 //? Initial Configs
 const app = express()
@@ -39,6 +40,7 @@ app.get('/',(req, res) => {
 })
 
 app.use('/api/v1/users', userRouter)
+app.use('/api/v1/auth', authRouter)
 
 app.listen(port, () => {
     console.log(`Server started at port ${port}`)
